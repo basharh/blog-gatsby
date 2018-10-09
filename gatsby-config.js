@@ -4,11 +4,12 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: `@mosch/gatsby-source-github`,
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
-      },
+        tree: true,
+        repository: "blog",
+        user: "basharh",
+      }
     },
     `gatsby-transformer-remark`,
     `gatsby-plugin-emotion`,

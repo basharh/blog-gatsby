@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Pandas Eating Lots`,
+    title: `Pandas Eating Lots of Hummus`
   },
   plugins: [
     {
@@ -8,7 +8,7 @@ module.exports = {
       options: {
         tree: true,
         repository: "blog",
-        user: "basharh",
+        user: "basharh"
       }
     },
     `gatsby-transformer-remark`,
@@ -16,8 +16,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
-    },
-  ],
-}
+        pathToConfigModule: `src/utils/typography`
+      }
+    }
+  ]
+};

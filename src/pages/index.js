@@ -1,54 +1,74 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { css } from "react-emotion"
-import { rhythm } from "../utils/typography"
-import Layout from "../components/layout"
+import React from "react";
+import PropTypes from "prop-types";
+import { graphql, Link } from "gatsby";
+import { css } from "react-emotion";
+import { rhythm } from "../utils/typography";
+import Layout from "../components/layout";
 
-export default ({ data }) => {
-  console.log(data)
-  return (
-    <Layout>
-      <div>
-        <h1
-          className={css`
-            display: inline-block;
-            border-bottom: 1px solid;
-          `}
-        >
-          Amazing Pandas Eating Things
-        </h1>
-        <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
-          <div key={node.id}>
+const Index = ({ data }) => (
+  <Layout>
+    <div>
+      <h1
+        className={css`
+          display: inline-block;
+          border-bottom: 1px solid;
+        `}
+      >
+        Amazing Pandas Eating Things
+      </h1>
+      <h4>
+        {data.allMarkdownRemark.totalCount}
+        {` `}
+        Posts
+      </h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <Link
+            to={node.fields.slug}
+            className={css`
+              text-decoration: none;
+              color: inherit;
+            `}
+          >
             <h3
               className={css`
                 margin-bottom: ${rhythm(1 / 4)};
               `}
             >
-              {node.frontmatter.title}{" "}
+              {node.frontmatter.title}
+              {` `}
               <span
                 className={css`
                   color: #bbb;
                 `}
               >
-                — {node.frontmatter.date}
+                {`- ${node.frontmatter.date}`}
               </span>
             </h3>
             <p>{node.excerpt}</p>
-          </div>
-        ))}
-      </div>
-    </Layout>
-  )
-}
+          </Link>
+        </div>
+      ))}
+    </div>
+  </Layout>
+);
+
+Index.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
+export default Index;
 
 export const query = graphql`
   query {
-    allMarkdownRemark (sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       totalCount
       edges {
         node {
           id
+          fields {
+            slug
+          }
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
@@ -58,4 +78,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

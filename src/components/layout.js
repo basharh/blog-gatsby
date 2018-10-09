@@ -1,8 +1,8 @@
-import React from "react"
-import { css } from "react-emotion"
-import { StaticQuery, Link, graphql } from "gatsby"
+import React from "react";
+import { css } from "react-emotion";
+import { StaticQuery, Link, graphql } from "gatsby";
 
-import { rhythm } from "../utils/typography"
+import { rhythm } from "../utils/typography";
 
 export default ({ children }) => (
   <StaticQuery
@@ -14,8 +14,7 @@ export default ({ children }) => (
           }
         }
       }
-    `
-    }
+    `}
     render={data => (
       <div
         className={css`
@@ -25,7 +24,7 @@ export default ({ children }) => (
           padding-top: ${rhythm(1.5)};
         `}
       >
-        <Link to={`/`}>
+        <Link to="/">
           <h3
             className={css`
               margin-bottom: ${rhythm(2)};
@@ -37,7 +36,7 @@ export default ({ children }) => (
           </h3>
         </Link>
         <Link
-          to={`/about/`}
+          to="/about/"
           className={css`
             float: right;
           `}
@@ -48,4 +47,4 @@ export default ({ children }) => (
       </div>
     )}
   />
-)
+);

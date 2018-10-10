@@ -22,7 +22,7 @@ const Index = ({ data }) => (
         Posts
       </h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
+        <div key={node.id} style={{ direction: node.frontmatter.direction }}>
           <Link
             to={node.fields.slug}
             className={css`
@@ -71,6 +71,7 @@ export const query = graphql`
           }
           frontmatter {
             title
+            direction
             date(formatString: "DD MMMM, YYYY")
           }
           excerpt

@@ -3,6 +3,13 @@ module.exports = {
     title: `Pandas Eating Lots of Hummus`
   },
   plugins: [
+    /* {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`
+      }
+    }, */
     {
       resolve: `@mosch/gatsby-source-github`,
       options: {
@@ -11,7 +18,12 @@ module.exports = {
         user: "basharh"
       }
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        excerpt_separator: `\n`
+      }
+    },
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typography`,

@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { css } from "react-emotion";
 import { StaticQuery, Link, graphql } from "gatsby";
 
 import { rhythm } from "../utils/typography";
 
-export default ({ children }) => (
+const headerLink = css``;
+
+const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -15,36 +18,50 @@ export default ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={() => (
       <div
         className={css`
           margin: 0 auto;
           max-width: 700px;
-          padding: ${rhythm(2)};
-          padding-top: ${rhythm(1.5)};
         `}
       >
-        <Link to="/">
-          <h3
-            className={css`
-              margin-bottom: ${rhythm(2)};
-              display: inline-block;
-              font-style: normal;
-            `}
-          >
-            {data.site.siteMetadata.title}
-          </h3>
-        </Link>
-        <Link
-          to="/about/"
+        <h1
           className={css`
-            float: right;
+            margin: 0 auto;
+            max-width: 700px;
+            padding: ${rhythm(1)};
+            text-align: center;
           `}
         >
-          About
-        </Link>
+          بشّار الحرفوش
+        </h1>
+        <nav>
+          <ul
+            className={css`
+              display: flex;
+              justify-content: space-around;
+              list-style: none;
+            `}
+          >
+            <li css={headerLink}>
+              <Link to="/writing/">Writing</Link>
+            </li>
+            <li css={headerLink}>
+              <Link to="/bio/">Bio</Link>
+            </li>
+            <li css={headerLink}>
+              <Link to="/projects/">Projects</Link>
+            </li>
+          </ul>
+        </nav>
         {children}
       </div>
     )}
   />
 );
+
+Layout.propTypes = {
+  children: PropTypes.object.isRequired
+};
+
+export default Layout;

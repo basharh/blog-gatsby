@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 
-export default ({ data }) => (
+const About = ({ data }) => (
   <Layout>
     <h1>
       About
@@ -14,6 +15,12 @@ export default ({ data }) => (
     </p>
   </Layout>
 );
+
+About.propTypes = {
+  data: PropTypes.object.isRequired
+};
+
+export default About;
 
 export const query = graphql`
   query {

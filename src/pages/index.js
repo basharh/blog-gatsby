@@ -8,14 +8,6 @@ import Layout from "../components/layout";
 const Index = ({ data }) => (
   <Layout>
     <div>
-      <h1
-        className={css`
-          display: inline-block;
-          border-bottom: 1px solid;
-        `}
-      >
-        Amazing Pandas Eating Things
-      </h1>
       <h4>
         {data.allMarkdownRemark.totalCount}
         {` `}

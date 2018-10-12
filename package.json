@@ -16,6 +16,7 @@
     "gatsby-plugin-typography": "^2.2.0",
     "gatsby-source-filesystem": "^2.0.2",
     "gatsby-transformer-remark": "^2.1.6",
+    "moment": "^2.22.2",
     "prop-types": "^15.6.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",

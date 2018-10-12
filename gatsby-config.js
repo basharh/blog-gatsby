@@ -15,7 +15,10 @@ module.exports = {
       options: {
         tree: true,
         repository: "blog",
-        user: "basharh"
+        user: "basharh",
+        secrets: {
+          token: process.env.github_api_token
+        }
       }
     },
     {

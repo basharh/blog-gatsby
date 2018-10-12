@@ -15,7 +15,7 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   if (direction === "rtl") {
     date = moment(timestamp)
       .locale("ar")
-      .format("DD MMMM, YYYY");
+      .format("DD MMMM YYYY");
   } else {
     date = moment(timestamp)
       .locale("en")

@@ -31,7 +31,7 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
           color: inherit;
         `}
       >
-        <h3
+        <h4
           className={css`
             margin-bottom: ${rhythm(1 / 4)};
           `}
@@ -41,11 +41,12 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
           <span
             className={css`
               color: #bbb;
+              font-size: 0.9rem;
             `}
           >
             {`- ${date}`}
           </span>
-        </h3>
+        </h4>
         <p>{excerpt}</p>
       </Link>
     </div>

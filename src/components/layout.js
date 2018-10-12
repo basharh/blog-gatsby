@@ -22,7 +22,7 @@ const Layout = ({ children }) => (
       <div
         className={css`
           margin: 0 auto;
-          max-width: 700px;
+          max-width: 500px;
         `}
       >
         <h1

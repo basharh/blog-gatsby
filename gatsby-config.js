@@ -17,7 +17,7 @@ module.exports = {
         repository: "blog",
         user: "basharh",
         secrets: {
-          token: process.env.github_api_token
+          token: process.env.GITHUB_API_TOKEN
         }
       }
     },

@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "react-emotion";
+import { css, injectGlobal } from "react-emotion";
 import { StaticQuery, Link, graphql } from "gatsby";
 
 import { rhythm } from "../utils/typography";
+
+injectGlobal(`
+  @import url('https://fonts.googleapis.com/css?family=Cairo');
+`);
 
 const headerLink = css``;
 
@@ -27,6 +31,7 @@ const Layout = ({ children }) => (
       >
         <h1
           className={css`
+            font-family: "Cairo", sans-serif;
             margin: 0 auto;
             max-width: 700px;
             padding: ${rhythm(1)};

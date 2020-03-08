@@ -1,7 +1,5 @@
 module.exports = {
-  plugins: ["react"],
   extends: [
-    "plugin:react/recommended",
     "airbnb",
     "prettier",
     "prettier/react",

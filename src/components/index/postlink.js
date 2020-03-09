@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 import { Link } from "gatsby";
-import "./postlink.css";
+import "moment/locale/ar";
+import "./postlink.scss";
 
 const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   const direction = frontmatter.direction === "rtl" ? "rtl" : "ltr";
+  const lang = frontmatter.direction === "rtl" ? "ar" : "en";
 
   const timestamp = parseInt(frontmatter.date, 10);
   let date;
@@ -20,7 +22,7 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   }
 
   return (
-    <div key={id} style={{ direction }}>
+    <div key={id} style={{ direction }} lang={lang}>
       <Link to={fields.slug}>
         <h4>
           {frontmatter.title}

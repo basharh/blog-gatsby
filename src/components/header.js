@@ -1,42 +1,43 @@
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
 import React from "react";
+import { css } from "@emotion/core";
+import { Link } from "gatsby";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+const Header = () => (
+  <header>
+    <h1
+      css={css`
+        font-family: "Cairo", sans-serif;
+        margin: 0 auto;
+        padding: 1rem;
+        text-align: center;
+      `}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
+      بشّار الحرفوش
+    </h1>
+    <nav>
+      <ul
+        css={css`
+          width: 50%;
+          margin: 0px auto;
+          display: flex;
+          justify-content: space-around;
+          list-style: none;
+          color: #9f392b;
+          text-decoration: underline;
+        `}
+      >
+        <li>
+          <Link to="/">Writing</Link>
+        </li>
+        <li>
+          <Link to="/bio/">Bio</Link>
+        </li>
+        <li>
+          <Link to="/projects/">Projects</Link>
+        </li>
+      </ul>
+    </nav>
   </header>
 );
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-};
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;

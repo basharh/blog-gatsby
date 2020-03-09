@@ -5,11 +5,11 @@ import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import PostLink from "../components/index/postlink";
 import SEO from "../components/seo";
-import "./index.css";
+import "./projects.scss";
 
-const Index = ({ data }) => (
+const Projects = ({ data }) => (
   <Layout>
-    <SEO title="Writing" />
+    <SEO title="Projects" />
     <div>
       <h4 className="count">
         {data.allMarkdownRemark.totalCount}
@@ -23,14 +23,14 @@ const Index = ({ data }) => (
   </Layout>
 );
 
-Index.propTypes = {
+Projects.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/articles/" } }
+      filter: { fileAbsolutePath: { regex: "/projects/[^//]+.md$/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount
@@ -45,11 +45,11 @@ export const query = graphql`
             direction
             date(formatString: "x")
           }
-          excerpt(truncate: true)
+          excerpt
         }
       }
     }
   }
 `;
 
-export default Index;
+export default Projects;

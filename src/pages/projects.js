@@ -11,11 +11,6 @@ const Projects = ({ data }) => (
   <Layout>
     <SEO title="Projects" />
     <div>
-      <h4 className="count">
-        {data.allMarkdownRemark.totalCount}
-        {` `}
-        Posts
-      </h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <PostLink node={node} />
       ))}

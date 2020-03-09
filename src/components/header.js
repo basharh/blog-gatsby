@@ -8,8 +8,9 @@ const Header = () => (
       css={css`
         font-family: "Cairo", sans-serif;
         margin: 0 auto;
-        padding: 1rem;
+        padding: 1.5rem;
         text-align: center;
+        font-weight: 400;
       `}
     >
       بشّار الحرفوش

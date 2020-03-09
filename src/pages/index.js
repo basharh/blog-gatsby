@@ -11,11 +11,6 @@ const Index = ({ data }) => (
   <Layout>
     <SEO title="Writing" />
     <div>
-      <h4 className="count">
-        {data.allMarkdownRemark.totalCount}
-        {` `}
-        Posts
-      </h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <PostLink node={node} />
       ))}

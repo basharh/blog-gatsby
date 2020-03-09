@@ -10,25 +10,25 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   const lang = frontmatter.direction === "rtl" ? "ar" : "en";
 
   const timestamp = parseInt(frontmatter.date, 10);
-  let date;
+
+  let date = moment(timestamp)
+    .locale("en")
+    .format("DD MMMM, YYYY");
+
   if (direction === "rtl") {
     date = moment(timestamp)
       .locale("ar")
       .format("DD MMMM YYYY");
-  } else {
-    date = moment(timestamp)
-      .locale("en")
-      .format("DD MMMM, YYYY");
   }
 
   return (
-    <div key={id} style={{ direction }} lang={lang}>
+    <div key={id} lang={lang}>
       <Link to={fields.slug}>
-        <h4>
+        <h5>
           {frontmatter.title}
           {` `}
-          <span>{`- ${date}`}</span>
-        </h4>
+          <span className="date">{`- ${date}`}</span>
+        </h5>
         <p>{excerpt}</p>
       </Link>
     </div>

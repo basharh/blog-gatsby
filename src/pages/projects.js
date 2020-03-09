@@ -25,8 +25,8 @@ Projects.propTypes = {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/[^//]+.md$/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/projects/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       totalCount
       edges {

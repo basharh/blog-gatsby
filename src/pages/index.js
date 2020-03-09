@@ -25,8 +25,8 @@ Index.propTypes = {
 export const query = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/articles/" } }
-      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { regex: "/articles/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       totalCount
       edges {

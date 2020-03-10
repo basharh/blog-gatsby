@@ -24,7 +24,7 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   return (
     <div key={id} lang={lang}>
       <Link to={fields.slug}>
-        <h5>
+        <h5 className="title">
           {frontmatter.title}
           {` `}
           <span className="date">{`- ${date}`}</span>

@@ -7,8 +7,7 @@ const Header = () => (
     <h1
       css={css`
         font-family: "Cairo", sans-serif;
-        margin: 0 auto;
-        padding: 1.5rem;
+        margin: 30px auto 20px auto;
         text-align: center;
         font-weight: 400;
       `}
@@ -18,13 +17,16 @@ const Header = () => (
     <nav>
       <ul
         css={css`
-          width: 50%;
           margin: 0px auto;
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           list-style: none;
           color: #9f392b;
           text-decoration: underline;
+
+          li {
+            margin: 0px 30px;
+          }
         `}
       >
         <li>

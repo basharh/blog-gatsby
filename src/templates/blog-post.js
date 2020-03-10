@@ -8,7 +8,7 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <div style={{ direction: post.frontmatter.direction }}>
-        <h1>{post.frontmatter.title}</h1>
+        <h3>{post.frontmatter.title}</h3>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>

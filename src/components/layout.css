@@ -624,3 +624,8 @@ pre tt:after {
 body {
   background-color: #eee;
 }
+
+/* this seems to fix the issue of the logo flashing before the font is loaded
+ * if it's loaded with web-font-loader. I'm not sure what's different between
+ * that approach and this. */
+@import url("https://fonts.googleapis.com/css?family=Cairo&display=swap");

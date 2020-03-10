@@ -23,8 +23,8 @@ const Layout = ({ children }) => {
       <div
         css={css`
           margin: 20px auto;
-          max-width: 700px;
-          padding: 0 1.0875rem 1.45rem;
+          max-width: 680px;
+          padding: 0.8rem 1.0875rem 1.45rem;
           display: flex;
         `}
       >

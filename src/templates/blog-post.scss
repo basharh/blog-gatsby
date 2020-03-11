@@ -1,0 +1,13 @@
+.post {
+  font-size: 0.9rem;
+}
+
+.post[lang="ar"] {
+  direction: rtl;
+  font-family: "Cairo";
+
+  h4 {
+    font-family: "Cairo";
+    margin-bottom: 10px;
+  }
+}

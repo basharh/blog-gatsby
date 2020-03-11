@@ -2,13 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
+import "./blog-post.scss";
 
 const BlogPost = ({ data }) => {
   const post = data.markdownRemark;
+  const lang = post.frontmatter.direction === "rtl" ? "ar" : "en";
   return (
     <Layout>
-      <div style={{ direction: post.frontmatter.direction }}>
-        <h3>{post.frontmatter.title}</h3>
+      <div className="post" lang={lang}>
+        <h4>{post.frontmatter.title}</h4>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>

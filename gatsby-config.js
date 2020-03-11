@@ -29,7 +29,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
+    /* {
       resolve: `@mosch/gatsby-source-github`,
       options: {
         tree: true,
@@ -39,15 +39,14 @@ module.exports = {
           token: process.env.GITHUB_API_TOKEN,
         },
       },
-    },
-    /* {
+    }, */
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `articles`,
-        path: `../blog/articles/`,
+        path: `blog`,
       },
     },
-    {
+    /* {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `projects`,

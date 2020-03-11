@@ -25,9 +25,7 @@ const Bio = ({ data }) => (
           font-size: 0.9rem;
         `}
       >
-        <div
-          dangerouslySetInnerHTML={{ __html: data.ar.childMarkdownRemark.html }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: data.ar.html }} />
       </div>
       <div
         css={css`
@@ -36,7 +34,7 @@ const Bio = ({ data }) => (
             line-height: 1.3;
           }
         `}
-        dangerouslySetInnerHTML={{ __html: data.en.childMarkdownRemark.html }}
+        dangerouslySetInnerHTML={{ __html: data.en.html }}
       />
     </div>
   </Layout>
@@ -51,17 +49,13 @@ Bio.propTypes = {
 
 export const query = graphql`
   query {
-    ar: githubFile(relativePath: { eq: "bio/ar.md" }) {
-      base
-      childMarkdownRemark {
-        html
-      }
+    ar: markdownRemark(fields: { slug: { eq: "/bio/ar" } }) {
+      html
+      excerpt
     }
-    en: githubFile(relativePath: { eq: "bio/en.md" }) {
-      base
-      childMarkdownRemark {
-        html
-      }
+    en: markdownRemark(fields: { slug: { eq: "/bio/en" } }) {
+      html
+      excerpt
     }
   }
 `;

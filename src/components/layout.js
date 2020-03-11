@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
         </main>
       </div>
       <footer>
-        <div
+        {/* <div
           css={css`
             margin: 0px auto;
             font-size: 14px;
@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
           `}
         >
           Built by <a href="https://twitter.com/bashar">@basharh</a>
-        </div>
+        </div> */}
       </footer>
     </>
   );

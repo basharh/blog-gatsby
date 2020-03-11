@@ -1,18 +1,26 @@
-a {
-  text-decoration: none;
-  color: inherit;
+// scss files need to be scoped!
+.post_link {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  h5.title {
+    margin-bottom: 6px;
+  }
+
+  h5 .date {
+    color: #bbb;
+    font-size: 0.8rem;
+  }
+
+  p {
+    line-height: 1.2;
+    font-size: 0.88rem;
+  }
 }
 
-h5.title {
-  margin-bottom: 6px;
-}
-
-h5 .date {
-  color: #bbb;
-  font-size: 0.8rem;
-}
-
-div[lang="ar"] {
+.post_link[lang="ar"] {
   direction: rtl;
   font-family: "Cairo";
 
@@ -25,9 +33,4 @@ div[lang="ar"] {
     line-height: 1.4;
     font-size: 0.8rem;
   }
-}
-
-p {
-  line-height: 1.2;
-  font-size: 0.88rem;
 }

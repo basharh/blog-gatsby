@@ -21,11 +21,14 @@ const Header = () => (
           display: flex;
           justify-content: center;
           list-style: none;
-          color: #9f392b;
-          text-decoration: underline;
 
           li {
             margin: 0px 30px;
+          }
+
+          a {
+            text-decoration: underline;
+            color: #9f392b;
           }
         `}
       >

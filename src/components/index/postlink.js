@@ -22,7 +22,7 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
   }
 
   return (
-    <div key={id} lang={lang}>
+    <div className="post_link" key={id} lang={lang}>
       <Link to={fields.slug}>
         <h5 className="title">
           {frontmatter.title}

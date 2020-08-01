@@ -7,21 +7,14 @@ import PostLink from "../components/index/postlink";
 import SEO from "../components/seo";
 import "./index.css";
 
-import { isArabic } from "../utils";
+import { getPostDataFromGoogleDoc } from "../utils";
 
 const Index = ({
   data: {
     docs: { nodes },
   },
 }) => {
-  const posts = nodes.map(({ id, document, childMarkdownRemark }) => ({
-    documentId: id,
-    title: document.name,
-    path: document.path,
-    excerpt: childMarkdownRemark.excerpt,
-    createdTime: document.createdTime,
-    lang: isArabic(document.name) ? "ar" : "en",
-  }));
+  const posts = nodes.map(node => getPostDataFromGoogleDoc(node));
 
   return (
     <Layout>

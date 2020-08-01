@@ -5,27 +5,29 @@ import { Link } from "gatsby";
 import "moment/locale/ar";
 import "./postlink.scss";
 
-const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
-  const direction = frontmatter.direction === "rtl" ? "rtl" : "ltr";
-  const lang = frontmatter.direction === "rtl" ? "ar" : "en";
-
-  const timestamp = parseInt(frontmatter.date, 10);
+// const PostLink = ({
+// post: { documentId, excerpt, path, createdTime, lang, title },
+// }) => {
+const PostLink = ({
+  post: { documentId, excerpt, path, createdTime, lang, title },
+}) => {
+  const timestamp = parseInt(createdTime, 10);
 
   let date = moment(timestamp)
     .locale("en")
     .format("DD MMMM, YYYY");
 
-  if (direction === "rtl") {
+  if (lang === "ar") {
     date = moment(timestamp)
       .locale("ar")
       .format("DD MMMM YYYY");
   }
 
   return (
-    <div className="post_link" key={id} lang={lang}>
-      <Link to={fields.slug}>
+    <div className="post_link" key={documentId} lang={lang}>
+      <Link to={path}>
         <h5 className="title">
-          {frontmatter.title}
+          {title}
           {` `}
           <span className="date">{`- ${date}`}</span>
         </h5>
@@ -36,7 +38,14 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
 };
 
 PostLink.propTypes = {
-  node: PropTypes.object.isRequired,
+  post: PropTypes.shape({
+    documentId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    excerpt: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    createdTime: PropTypes.string.isRequired,
+    lang: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default PostLink;

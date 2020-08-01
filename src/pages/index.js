@@ -7,40 +7,54 @@ import PostLink from "../components/index/postlink";
 import SEO from "../components/seo";
 import "./index.css";
 
-const Index = ({ data }) => (
-  <Layout>
-    <SEO title="Writing" />
-    <div>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <PostLink node={node} />
-      ))}
-    </div>
-  </Layout>
-);
+import { isArabic } from "../utils";
+
+const Index = ({
+  data: {
+    docs: { nodes },
+  },
+}) => {
+  const posts = nodes.map(({ id, document, childMarkdownRemark }) => ({
+    documentId: id,
+    title: document.name,
+    path: document.path,
+    excerpt: childMarkdownRemark.excerpt,
+    createdTime: document.createdTime,
+    lang: isArabic(document.name) ? "ar" : "en",
+  }));
+
+  return (
+    <Layout>
+      <SEO title="Writing" />
+      <div>
+        {posts.map(post => (
+          <PostLink post={post} />
+        ))}
+      </div>
+    </Layout>
+  );
+};
 
 Index.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(
-      filter: { fields: { slug: { regex: "/articles/" } } }
-      sort: { fields: frontmatter___date, order: DESC }
+  {
+    docs: allGoogleDocs(
+      filter: { document: { path: { regex: "/articles/" } } }
+      sort: { fields: document___createdTime, order: DESC }
     ) {
-      totalCount
-      edges {
-        node {
+      nodes {
+        id
+        document {
           id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            direction
-            date(formatString: "x")
-          }
-          excerpt(truncate: true)
+          path
+          name
+          createdTime(formatString: "x")
+        }
+        childMarkdownRemark {
+          id
         }
       }
     }

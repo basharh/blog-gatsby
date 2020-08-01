@@ -20,7 +20,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   result.data.allGoogleDocs.nodes.forEach(({ id, document }) => {
     createPage({
-      path: document.name,
+      path: document.path,
       component: path.resolve(`./src/templates/blog-post.js`),
       context: {
         id,

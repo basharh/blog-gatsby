@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Bashar Harfoush`,
@@ -40,12 +42,12 @@ module.exports = {
         },
       },
     }, */
-    {
+    /* {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `blog`,
       },
-    },
+    }, */
     /* {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -53,6 +55,14 @@ module.exports = {
         path: `../blog/projects/`,
       },
     }, */
+    {
+      resolve: "gatsby-source-google-docs",
+      options: {
+        // folders: ["1rAzF7VIu6ZcVtzbnBStzPh7v15cq09cg"], // journal
+        folders: ["1Nz9qdaGMisVImCiKRSv8amca308AfXpv"], // journal
+        debug: false,
+      },
+    },
     {
       resolve: `gatsby-transformer-remark`,
       options: {

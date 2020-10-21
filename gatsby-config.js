@@ -31,7 +31,7 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    /* {
+    {
       resolve: `@mosch/gatsby-source-github`,
       options: {
         tree: true,
@@ -41,7 +41,7 @@ module.exports = {
           token: process.env.GITHUB_API_TOKEN,
         },
       },
-    }, */
+    },
     /* {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -55,14 +55,14 @@ module.exports = {
         path: `../blog/projects/`,
       },
     }, */
-    {
+    /* {
       resolve: "gatsby-source-google-docs",
       options: {
         // folders: ["1rAzF7VIu6ZcVtzbnBStzPh7v15cq09cg"], // journal
         folders: ["1Nz9qdaGMisVImCiKRSv8amca308AfXpv"], // journal
         debug: false,
       },
-    },
+    }, */
     {
       resolve: `gatsby-transformer-remark`,
       options: {

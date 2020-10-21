@@ -7,47 +7,40 @@ import PostLink from "../components/index/postlink";
 import SEO from "../components/seo";
 import "./index.css";
 
-import { getPostDataFromGoogleDoc } from "../utils";
-
-const Index = ({
-  data: {
-    docs: { nodes },
-  },
-}) => {
-  const posts = nodes.map(node => getPostDataFromGoogleDoc(node));
-
-  return (
-    <Layout>
-      <SEO title="Writing" />
-      <div>
-        {posts.map(post => (
-          <PostLink post={post} />
-        ))}
-      </div>
-    </Layout>
-  );
-};
+const Index = ({ data }) => (
+  <Layout>
+    <SEO title="Writing" />
+    <div>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <PostLink node={node} />
+      ))}
+    </div>
+  </Layout>
+);
 
 Index.propTypes = {
   data: PropTypes.object.isRequired,
 };
 
 export const query = graphql`
-  {
-    docs: allGoogleDocs(
-      filter: { document: { path: { regex: "/articles/" } } }
-      sort: { fields: document___createdTime, order: DESC }
+  query {
+    allMarkdownRemark(
+      filter: { fields: { slug: { regex: "/articles/" } } }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
-      nodes {
-        id
-        document {
+      totalCount
+      edges {
+        node {
           id
-          path
-          name
-          createdTime(formatString: "x")
-        }
-        childMarkdownRemark {
-          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            direction
+            date(formatString: "x")
+          }
+          excerpt(truncate: true)
         }
       }
     }

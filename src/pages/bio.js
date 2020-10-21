@@ -6,70 +6,59 @@ import PropTypes from "prop-types";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const Bio = ({ data }) => {
-  const { arabic, english } = data;
-  return (
-    <Layout>
-      <SEO title="About Me" />
+const Bio = ({ data }) => (
+  <Layout>
+    <SEO title="About Me" />
+    <div
+      css={css`
+        margin: 10px 0px;
+
+        div {
+          margin: 20px 0px;
+        }
+      `}
+    >
       <div
         css={css`
-          margin: 10px 0px;
-
-          div {
-            margin: 20px 0px;
-          }
+          direction: rtl;
+          font-family: Cairo;
+          font-size: 0.9rem;
         `}
       >
         <div
-          css={css`
-            direction: rtl;
-            font-family: Cairo;
-            font-size: 0.9rem;
-          `}
-        >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: arabic.childMarkdownRemark.html,
-            }}
-          />
-        </div>
-        <div
-          css={css`
-            p {
-              font-size: 0.8rem;
-              line-height: 1.3;
-            }
-          `}
-          dangerouslySetInnerHTML={{ __html: english.childMarkdownRemark.html }}
+          dangerouslySetInnerHTML={{ __html: data.ar.childMarkdownRemark.html }}
         />
       </div>
-    </Layout>
-  );
-};
+      <div
+        css={css`
+          p {
+            font-size: 0.8rem;
+            line-height: 1.3;
+          }
+        `}
+        dangerouslySetInnerHTML={{ __html: data.en.childMarkdownRemark.html }}
+      />
+    </div>
+  </Layout>
+);
 
 Bio.propTypes = {
   data: PropTypes.shape({
-    arabic: PropTypes.object.isRequired,
-    english: PropTypes.object.isRequired,
+    ar: PropTypes.string,
+    en: PropTypes.string,
   }).isRequired,
 };
 
 export const query = graphql`
   query {
-    arabic: googleDocs(document: { path: { eq: "/bio/arabic" } }) {
-      id
-      document {
-        name
-      }
+    ar: githubFile(relativePath: { eq: "bio/ar.md" }) {
+      base
       childMarkdownRemark {
         html
       }
     }
-    english: googleDocs(document: { path: { eq: "/bio/english" } }) {
-      id
-      document {
-        name
-      }
+    en: githubFile(relativePath: { eq: "bio/en.md" }) {
+      base
       childMarkdownRemark {
         html
       }

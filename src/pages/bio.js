@@ -22,7 +22,8 @@ const Bio = ({ data }) => (
         css={css`
           direction: rtl;
           font-family: Cairo;
-          font-size: 0.9rem;
+          font-size: 0.95rem;
+          line-height: 1.5;
         `}
       >
         <div
@@ -32,7 +33,7 @@ const Bio = ({ data }) => (
       <div
         css={css`
           p {
-            font-size: 0.8rem;
+            font-size: 1rem;
             line-height: 1.3;
           }
         `}

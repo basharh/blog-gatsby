@@ -69,6 +69,13 @@ module.exports = {
         excerpt_separator: `<!-- end -->`,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Cairo:200,300,400,600,700`],
+        display: "swap",
+      },
+    },
     /* {
       resolve: "gatsby-plugin-web-font-loader",
       options: {

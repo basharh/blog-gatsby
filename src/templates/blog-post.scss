@@ -1,13 +1,19 @@
 .post {
-  font-size: 0.9rem;
+  line-height: 1.2rem;
+
+  h3 {
+    font-size: 1rem;
+  }
 }
 
 .post[lang="ar"] {
   direction: rtl;
   font-family: "Cairo";
+  line-height: 1.3rem;
 
   h3 {
     font-family: "Cairo";
     margin-bottom: 10px;
+    font-size: 1.2rem;
   }
 }

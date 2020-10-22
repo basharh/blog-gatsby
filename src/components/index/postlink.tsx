@@ -1,11 +1,19 @@
 import React from "react";
-import PropTypes from "prop-types";
 import moment from "moment";
 import { Link } from "gatsby";
 import "moment/locale/ar";
 import "./postlink.scss";
 
-const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
+// TODO: the typescript type of the props should ideally come from the plugin
+// but they're not supported yet.
+const PostLink: React.FC<{
+  node: {
+    id: string;
+    frontmatter: { direction: string; date: string; title: string };
+    fields: { slug: string };
+    excerpt: string;
+  };
+}> = ({ node: { id, frontmatter, fields, excerpt } }) => {
   const direction = frontmatter.direction === "rtl" ? "rtl" : "ltr";
   const lang = frontmatter.direction === "rtl" ? "ar" : "en";
 
@@ -33,10 +41,6 @@ const PostLink = ({ node: { id, frontmatter, fields, excerpt } }) => {
       </Link>
     </div>
   );
-};
-
-PostLink.propTypes = {
-  node: PropTypes.object.isRequired,
 };
 
 export default PostLink;

@@ -21,6 +21,7 @@ const Header = () => (
           display: flex;
           justify-content: center;
           list-style: none;
+          font-size: 1.2rem;
 
           li {
             margin: 0px 30px;

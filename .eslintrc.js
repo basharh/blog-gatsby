@@ -12,6 +12,10 @@ module.exports = {
       version: "detect",
     },
   },
+  env: {
+    browser: true,
+    node: true
+  },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -19,7 +23,6 @@ module.exports = {
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
-
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified
     // from the extended configs e.g.

@@ -4,7 +4,17 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import "./blog-post.scss";
 
-const BlogPost = ({ data: { markdownRemark: post } }) => {
+interface Post {
+  html: string;
+  frontmatter: {
+    title: string;
+    direction: "rtl" | "ltr";
+  };
+}
+
+const BlogPost: React.FC<{ data: { markdownRemark: Post } }> = ({
+  data: { markdownRemark: post },
+}) => {
   const lang = post.frontmatter.direction === "rtl" ? "ar" : "en";
 
   return (
@@ -19,10 +29,6 @@ const BlogPost = ({ data: { markdownRemark: post } }) => {
       </div>
     </Layout>
   );
-};
-
-BlogPost.propTypes = {
-  data: PropTypes.object.isRequired,
 };
 
 export default BlogPost;

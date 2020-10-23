@@ -24,7 +24,7 @@ const BlogPost: React.FC<{ data: { markdownRemark: Post } }> = ({
         lang={lang}
         className="post"
       >
-        <h3>{post.frontmatter.title}</h3>
+        <h2>{post.frontmatter.title}</h2>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>

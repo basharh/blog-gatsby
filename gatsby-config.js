@@ -1,3 +1,4 @@
+/* eslint-env commonjs */
 require("dotenv").config();
 
 module.exports = {

@@ -14,7 +14,7 @@ module.exports = {
   },
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   extends: [
     "eslint:recommended",
@@ -23,10 +23,13 @@ module.exports = {
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
-  rules: {
-    // Place to specify ESLint rules. Can be used to overwrite rules specified
-    // from the extended configs e.g.
-    // "@typescript-eslint/explicit-function-return-type": "off",
-    "react/prop-types": 0,
-  },
+  overrides: [
+    {
+      parser: "espree",
+      files: ["*.js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+  ],
 };

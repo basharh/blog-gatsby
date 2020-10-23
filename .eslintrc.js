@@ -23,6 +23,9 @@ module.exports = {
     "prettier/@typescript-eslint",
     "plugin:prettier/recommended",
   ],
+  rules: {
+    "react/prop-types": 0,
+  },
   overrides: [
     {
       parser: "espree",

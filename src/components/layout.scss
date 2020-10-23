@@ -1,0 +1,46 @@
+@import "~normalize.css";
+
+html {
+  font-family: georgia, serif;
+  color: #444;
+}
+
+body {
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  text-rendering: optimizeLegibility;
+}
+
+p {
+  line-height: 1.3rem;
+  font-size: 1rem;
+}
+
+[lang="ar"] {
+  font-family: Cairo;
+  direction: rtl;
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.7rem;
+  }
+}
+
+.post {
+  ul {
+    padding-left: 30px;
+
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

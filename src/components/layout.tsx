@@ -1,7 +1,7 @@
 import React from "react";
 import { css } from "@emotion/core";
 import Header from "./header";
-import "./layout.css";
+import "./layout.scss";
 
 const Layout: React.FC = ({ children }) => {
   return (

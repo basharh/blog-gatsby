@@ -22,31 +22,12 @@ const Bio: React.FC<Props> = ({ data: { ar, en } }) => (
     <div
       css={css`
         margin: 10px 0px;
-
-        div {
-          margin: 20px 0px;
-        }
       `}
     >
-      <div
-        css={css`
-          direction: rtl;
-          font-family: Cairo;
-          font-size: 0.95rem;
-          line-height: 1.5;
-        `}
-      >
+      <div lang="ar">
         <div dangerouslySetInnerHTML={{ __html: ar.html }} />
       </div>
-      <div
-        css={css`
-          p {
-            font-size: 1rem;
-            line-height: 1.3;
-          }
-        `}
-        dangerouslySetInnerHTML={{ __html: en.html }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: en.html }} />
     </div>
   </Layout>
 );

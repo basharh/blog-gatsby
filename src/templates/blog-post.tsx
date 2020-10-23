@@ -6,6 +6,7 @@ import "./blog-post.scss";
 
 interface Post {
   html: string;
+  tableOfContents: string;
   frontmatter: {
     title: string;
     direction: "rtl" | "ltr";
@@ -24,7 +25,8 @@ const BlogPost: React.FC<{ data: { markdownRemark: Post } }> = ({
         lang={lang}
         className="post"
       >
-        <h2>{post.frontmatter.title}</h2>
+        <h1>{post.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.tableOfContents }} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     </Layout>
@@ -37,6 +39,7 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      tableOfContents
       frontmatter {
         title
         direction

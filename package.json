@@ -22,7 +22,7 @@
     "gatsby-source-filesystem": "^2.3.23",
     "gatsby-source-github": "0.0.2",
     "gatsby-source-google-docs": "^2.0.0-beta.13",
-    "gatsby-transformer-remark": "^2.8.27",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.5.12",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
